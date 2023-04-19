@@ -15,6 +15,7 @@ SRC_URI = " \
 			http://dist.nuget.org/win-x86-commandline/v${PV}/nuget.exe;downloadfilename=NuGet-v${PV}.exe \
 			http://www.apache.org/licenses/LICENSE-2.0.txt;downloadfilename=Apache-LICENSE-2.0.txt;name=lic \
 			file://nuget.sh.in \
+			file://NuGet.Config \
 		"
 
 SRC_URI[lic.md5sum] = "3b83ef96387f14655fc854ddc3c6bd57"
@@ -28,6 +29,7 @@ do_install () {
 	sed -i -e 's:@bindir@:${bindir}:g' -e 's:@libdir@:${libdir}:g' ${D}${bindir}/nuget
 
 	install -d -m0755 ${D}${libdir}/mono/nuget
+	install -m0755 NuGet.Config ${D}${libdir}/mono/nuget/NuGet.Config
 	install -m0755 ${WORKDIR}/NuGet-v${PV}.exe ${D}${libdir}/mono/nuget/NuGet.exe
 }
 
