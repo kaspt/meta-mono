@@ -53,10 +53,6 @@ do_install() {
 	install -m755 ${B}/cli/fxr/libhostfxr.so ${D}${libdir}/mono/msbuild/Current/bin/SdkResolvers/Microsoft.DotNet.MSBuildSdkResolver/libhostfxr.so
 }
 
-do_install_append_class-native () {
-	install -m755 ${B}/cli/fxr/libhostfxr.so ${D}${libdir}
-}
-
 FILES_${PN} = " \
     ${libdir}/mono/msbuild/Current/bin/SdkResolvers/Microsoft.DotNet.MSBuildSdkResolver/libhostfxr.so \
 "
